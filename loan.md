@@ -94,3 +94,52 @@ Relationships have been established between the tables using foreign keys to ens
 The data model allows for easy aggregation and analysis of data for reporting and analytics purposes.
 
 Overall, this database schema provides a comprehensive view of the loan lifecycle process and enables effective analysis of the data for various purposes.
+
+
+Example of the SQL code:
+
+```sql
+CREATE TABLE Borrowers (
+  borrower_id INT PRIMARY KEY,
+  name VARCHAR(255),
+  address VARCHAR(255),
+  contact_details VARCHAR(255)
+);
+
+CREATE TABLE Loans (
+  loan_id INT PRIMARY KEY,
+  borrower_id INT,
+  amount DECIMAL(10, 2),
+  rate DECIMAL(4, 2),
+  term INT,
+  FOREIGN KEY (borrower_id) REFERENCES Borrowers(borrower_id)
+);
+
+CREATE TABLE Investors (
+  investor_id INT PRIMARY KEY,
+  name VARCHAR(255),
+  address VARCHAR(255),
+  contact VARCHAR(255)
+);
+
+CREATE TABLE Loan_Parts (
+  part_id INT PRIMARY KEY,
+  loan_id INT,
+  investor_id INT,
+  amount DECIMAL(10, 2),
+  status VARCHAR(255),
+  FOREIGN KEY (loan_id) REFERENCES Loans(loan_id),
+  FOREIGN KEY (investor_id) REFERENCES Investors(investor_id)
+);
+
+CREATE TABLE Repayments (
+  repayment_id INT PRIMARY KEY,
+  loan_id INT,
+  borrower_id INT,
+  amount DECIMAL(10, 2),
+  date DATETIME,
+  status VARCHAR(255),
+  FOREIGN KEY (loan_id) REFERENCES Loans(loan_id),
+  FOREIGN KEY (borrower_id) REFERENCES Borrowers(borrower_id)
+);
+```
