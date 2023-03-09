@@ -14,13 +14,13 @@ The flatten function can be used from the command-line or as a Python module.
 
 To use the flatten function from the command-line, run the following command:
 
-    python <input_file_path> <keys_to_flatten> -o <output_file_path>
+    python <script_name> <input_file_path> <keys_to_flatten> -o <output_file_path>
 
 Here's an example command:
 
-    python products.py ObjectId attributes -o flattened.json
+    python flatten.py products.json ObjectId attributes -o flattened.json
 
-This command reads the products.json file, flattens the `ObjectId` and `attributes` keys, and writes the flattened JSON to the flattened.json file.
+This command reads the `products.json` file, flattens the `ObjectId` and `attributes` keys, and writes the flattened JSON to the flattened.json file.
 
 ### Module Usage
 
