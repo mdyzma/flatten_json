@@ -23,7 +23,7 @@ are useful
 
 After analyzing the given loan lifecycle process, the following database schema has been designed to support analytics.
 
-"""
+```
 +-----------------+     +---------+      +-------------+
 |    Borrowers    |     |  Loans  |      | Investors   |
 +-----------------+     +---------+      +-------------+
@@ -61,7 +61,7 @@ After analyzing the given loan lifecycle process, the following database schema 
                              | date          |
                              | status        |
                              +---------------+
-""""
+```
 
 Explanation of the Data Model:
 
